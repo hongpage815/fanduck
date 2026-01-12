@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 팬덤 조공 플랫폼</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFC800', // Duck Yellow
+                        secondary: '#FF8E00', // Orange Accent
+                        dark: '#1A1A1A',
+                        light: '#FFFDF5',
+                        grayCustom: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link rel="icon" href="assets/fanduck_character.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #FFFDF5;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Auto-rolling Carousel Animation */
+        .rolling-banner {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .rolling-track {
+            display: flex;
+            animation: rolling 20s linear infinite;
+        }
+
+        .rolling-track img {
+            height: 480px;
+            /* Increased height as requested for original feel */
+            width: auto;
+            /* Maintain aspect ratio */
+            max-width: none;
+            margin-right: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes rolling {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-dark">
+
+    <!-- Header -->
+    <header
+        class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 h-16 flex items-center justify-between px-4 lg:px-8">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="goHome()">
+            <!-- Logo Icon (Simple Duck Emoji style for MVP) -->
+            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">D</div>
+            <h1 class="text-xl font-bold tracking-tight text-secondary">FANDUCK</h1>
+        </div>
+        <nav class="hidden md:flex gap-6 font-medium text-gray-600">
+            <a href="#" onclick="goHome()" class="hover:text-primary transition">홈</a>
+            <a href="#" onclick="startFunding()" class="hover:text-primary transition">조공하기</a>
+            <a href="#" onclick="goToPartners()" class="hover:text-primary transition">제휴사</a>
+            <a href="#contact" class="hover:text-primary transition">문의하기</a>
+        </nav>
+        <button class="md:hidden text-2xl text-gray-600">☰</button>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="app" class="pt-16 pb-20 min-h-screen">
+        <!-- Content will be injected here by JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white/60 py-16 px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <img src="assets/logo.png" alt="FANDUCK" class="h-6 w-auto opacity-50 grayscale mx-auto md:mx-0 mb-4">
+                <p class="text-xs">© 2025 FANDUCK. All rights reserved.</p>
+                <p class="text-xs mt-1 opacity-50">Designed for Global K-POP Fandom</p>
+            </div>
+            <div class="flex gap-8 text-xs font-bold">
+                <a href="#" class="hover:text-white transition">이용약관</a>
+                <a href="#" class="hover:text-white transition">개인정보처리방침</a>
+                <a href="mailto:partnership@fanduck.com" class="hover:text-white transition">파트너십 문의</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="allocator.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
